@@ -27,14 +27,32 @@ for i in rating:
 		for k in range(4):
 			game_play(j[0][0],j[0][1],j[1][0],j[1][1])
 
+for i in range(2):
+	inter_div = list(combinations(range(3),2))
+	for j in inter_div:
+		for k in range(5):
+			for l in range(5):
+				for m in range(3):
+					t1 = rating[j[0] + 3*i][k]
+					t2 = rating[j[1] + 3*i][l]
+					game_play(t1[0],t1[1],t2[0],t2[1])
+
+
+
 conf_1 = rating[0]+rating[1]+rating[2]
 conf_2 = rating[3]+rating[4]+rating[5]
-print conf_1
-print conf_2
 for i in conf_1:
 	for j in conf_2:
 		for k in range(2):
 			game_play(i[0],i[1],j[0],j[1])
 
-for i in game_results:
+conf_1_r = sorted(game_results[0:15], key = lambda x: x[2])
+conf_2_r = sorted(game_results[15:30], key = lambda x: x[2])
+
+for i in conf_1_r:
+	print i
+
+print '\n'
+
+for i in conf_2_r:
 	print i
